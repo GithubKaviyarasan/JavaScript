@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Day 8 DOM Examples</title>
+    <style>
+        body {
+            font-family: Arial;
+            padding: 20px;
+        }
+
+        .box {
+            margin-top: 10px;
+            padding: 10px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1 id="title">Original Title</h1>
+
+    <p class="text">First paragraph</p>
+    <p class="text">Second paragraph</p>
+
+    <div id="box" class="box">This is a box</div>
+
+    <button id="btn">Click Me</button>
+
+    <input type="text" id="inputBox" placeholder="Type something">
+    <button id="showBtn">Show Input</button>
+
+    <h3 id="output"></h3>
+
+    <hr>
+
+    <h2>DOM Examples Output Below 👇</h2>
+
+    <div id="result" class="box"></div>
+
+    <script>
+        // // 1. getElementById
+        let title = document.getElementById("title");
+
+        // // 2. getElementsByClassName
+        let texts = document.getElementsByClassName("text");
+
+        // // 3. querySelector
+        let box = document.querySelector("#box");
+
+        
+        // // 4. querySelectorAll 
+        let allTexts = document.querySelectorAll(".text");
+ 
+        // // Show all examples in result box
+        document.getElementById("result").innerHTML =
+            "Title: " + title.textContent + "<br>" +
+            "Box: " + box.textContent + "<br>" +
+            "First Class Text: " + texts[0].textContent + "<br>" +
+            "All Paragraph Count: " + allTexts.length;
+
+       
+        // // 5. textContent example
+        title.textContent = "Title Changed using textContent";
+
+        // // 6. innerHTML example
+        box.innerHTML = "<b>Box changed using innerHTML</b>";
+
+        
+        // // 7. style change example
+        title.style.color = "blue";
+
+       
+        // // 8. Event Listener (Button click)
+        let btn = document.getElementById("btn");
+        let output = document.getElementById("output");
+
+        btn.addEventListener("click", function () {
+            output.textContent = "Button Clicked Successfully!";
+            output.style.color = "green";
+        });
+
+        
+        // // 9. Input value example     
+        let inputBox = document.getElementById("inputBox");
+        let showBtn = document.getElementById("showBtn");
+
+        showBtn.addEventListener("click", function () {
+            document.getElementById("result").innerHTML =
+                "You typed: " + inputBox.value;
+        });
+
+    </script>
+
+</body>
+
+</html>
